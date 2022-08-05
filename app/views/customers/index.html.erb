@@ -1,0 +1,26 @@
+<br>
+<h1> All Products</h1>
+<table>
+    <tr>
+        <th>s. no</th>
+        <th>name</th>
+        <th>price</th>
+        <th>stok</th>
+    </tr>
+    <% @product.each do |product| %>
+    <tr>
+        <td><%=product.id %></td>
+        <td><%=product.name %></td>
+        <td><%=product.price %></td>
+        <td><%=product.stok %></td>
+        <%=form_with model: product, url:carts_path, method: :post do |form| %>
+        <td><%= form.hidden_field :product_id,value: product.id %></td>
+        <td><%= form.hidden_field :sell_id,value: product.user_id %></td>
+        <td><%= form.hidden_field :pro_name,value: product.name %></td>
+        <td><%= form.hidden_field :pro_price,value: product.price %></td>
+        <td><%=form.number_field :pro_stok ,value: 0, min: 1, max: product.stok, step: 1%></td>
+        <td><%=form.submit "ADD TO CART"%></td>
+        <% end %>
+    </tr>
+    <% end %>
+</table>

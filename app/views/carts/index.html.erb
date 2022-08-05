@@ -1,0 +1,25 @@
+<br>
+<h1> All Products</h1>
+<table>
+    <tr>
+        <th>s. no</th>
+        <th>name</th>
+        <th>price</th>
+        <th>stok</th>
+    </tr>
+    <% @cart.each do |cart| %>
+    <tr>
+        <td><%=cart.id %></td>
+        <td><%=cart.pro_name %></td>
+        <td><%=cart.pro_price %></td>
+        <%=form_with model: cart, url: cart_path(cart.id), method: :patch do |form| %>
+        <% var= Product.find(cart.product_id)%>
+        <td><%=form.number_field :pro_stok ,value: cart.pro_stok , min:0, max: var, step: 1%></td>
+        <td><%=form.submit "update"%></td>
+        <td><%= link_to "Delete",cart_path(cart.id),method: :delete %></td>
+        <% end %>
+        
+        
+    </tr>
+    <% end %>
+</table>

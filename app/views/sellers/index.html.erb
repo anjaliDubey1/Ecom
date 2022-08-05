@@ -1,0 +1,19 @@
+<br>
+<h1>Products</h1>
+<table>
+    <tr>
+        <th>name</th>
+        <th>price</th>
+        <th>stok</th>
+    </tr>
+    <% @user.each do |product| %>
+    <tr>
+        <td><%=product.name %></td>
+        <td><%=product.price %></td>
+        <td><%=product.stok %></td>
+        <td><%=link_to "Edit",edit_seller_path(product.id) %></td>
+        <td><%=link_to "Delete",seller_path(product.id), method: :delete%></td>
+    </tr>
+    <% end %>
+</table><br>
+<%=link_to "Add product",new_seller_path %>
