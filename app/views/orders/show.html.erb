@@ -1,0 +1,7 @@
+<% @order_details.each do |order_detail|%>
+<br>
+    product_id:  <%= order_detail.Product_id%> <br>
+    product Quantity: <%= order_detail.stok%><br>
+    product subtotal: <%= order_detail.subtotal%><br>
+<%end%>
+<br>

@@ -22,16 +22,20 @@ class CartsController < ApplicationController
       def update
         @cart = Cart.find(params[:id])
         @oldstok =@cart.pro_stok
+        @product= Product.find(@cart.product_id)
         if @cart.update(stok_params)
-          @product= Product.find(@cart.product_id)
+           @cart.subtotal=@cart.pro_price*@cart.pro_stok
+          
           if @oldstok < @cart.pro_stok
               @newstok = @cart.pro_stok-@oldstok
               @product.stok= @product.stok-@newstok
               @product.save
+              @cart.save
           else
             @newstok = @oldstok-@cart.pro_stok
             @product.stok = @product.stok + @newstok
             @product.save
+            @cart.save
           end
           redirect_to customers_index_path
         end

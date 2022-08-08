@@ -30,8 +30,13 @@ ActiveRecord::Schema.define(version: 2022_08_05_125130) do
   end
 
   create_table "order_details", force: :cascade do |t|
+    t.integer "Product_id"
+    t.integer "stok"
+    t.integer "subtotal"
+    t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_details_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
