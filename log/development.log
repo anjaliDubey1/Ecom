@@ -31542,3 +31542,31 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 82ms (Views: 80.5ms | ActiveRecord: 0.0ms | Allocations: 8160)
 
 
+Started GET "/" for 127.0.0.1 at 2022-08-08 18:54:17 +0530
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DetailsController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms | Allocations: 2603)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-08-08 18:54:17 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 722)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 4732)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 12064)
+Completed 200 OK in 34ms (Views: 25.6ms | ActiveRecord: 0.4ms | Allocations: 21184)
+
+
+Started GET "/route" for 127.0.0.1 at 2022-08-08 18:54:24 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/route"):
+  
+Started GET "/rails/info/routes?path=api" for 127.0.0.1 at 2022-08-08 18:54:29 +0530
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"api"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3457)
+
+

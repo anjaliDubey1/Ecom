@@ -8,7 +8,7 @@ class Api::V1::SellersController < Api::V1::ApiController
     end
     def new
         @user=User.find(3)
-        @product = Product.new
+        @product = @user.products.new
     end
     def create
     end
