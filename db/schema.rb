@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2022_08_05_125130) do
     t.string "name"
     t.string "surname"
     t.boolean "seller"
+    t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
